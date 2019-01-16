@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dleplugin>
+	<name>AMP</name>
+	<description>Siteniz için Google AMP desteği. İçeriklerinizi otomatik olarak AMP için dönüştürür.</description>
+	<icon>engine/skins/images/amp.png</icon>
+	<version>1.0</version>
+	<dleversion>13.0</dleversion>
+	<versioncompare>greater</versioncompare>
+	<upgradeurl>https://raw.githubusercontent.com/dlenettr/amp/master/release.json</upgradeurl>
+	<filedelete>1</filedelete>
+	<mysqlinstall><![CDATA[]]></mysqlinstall>
+	<mysqlupgrade><![CDATA[]]></mysqlupgrade>
+	<mysqlenable><![CDATA[]]></mysqlenable>
+	<mysqldisable><![CDATA[]]></mysqldisable>
+	<mysqldelete><![CDATA[]]></mysqldelete>
+	<file name="engine/engine.php">
+		<operation action="before">
+			<searchcode><![CDATA[if ($canonical) {]]></searchcode>
+			<replacecode><![CDATA[if ($subaction == "showfull") {
+
+	$metatags .= <<<HTML
+	
+<link rel="canonical" href="{$full_link}">
+HTML;
+
+	$metatags .= <<<HTML
+
+<link rel="amphtml" href="{$amp_link}">
+HTML;
+
+}]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/modules/show.full.php">
+		<operation action="after">
+			<searchcode><![CDATA[elseif( $category_id and $cat_info[$category_id]['full_tpl'] != '' ) $tpl->load_template( $cat_info[$category_id]['full_tpl'] . '.tpl' );]]></searchcode>
+			<replacecode><![CDATA[elseif ( $AMP ) $tpl->load_template( 'amp-fullstory.tpl' );]]></replacecode>
+		</operation>
+		<operation action="after">
+			<searchcode><![CDATA[$tpl->set( '{full-story}', $row['full_story'] );]]></searchcode>
+			<replacecode><![CDATA[$amp_link = $short_link . $news_name . "/amp.html";
+$tpl->set('{amp-link}', $amp_link);]]></replacecode>
+		</operation>
+		<operation action="before">
+			<searchcode><![CDATA[if( $allow_comments AND $news_found) {]]></searchcode>
+			<replacecode><![CDATA[if ( $AMP ) $allow_comments = false;]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/modules/main.php">
+		<operation action="after">
+			<searchcode><![CDATA[$tpl->load_template ( 'main.tpl' );]]></searchcode>
+			<replacecode><![CDATA[if ( $AMP ) $tpl->load_template ( 'amp-main.tpl' );]]></replacecode>
+		</operation>
+		<operation action="before">
+			<searchcode><![CDATA[echo $tpl->result['main'];]]></searchcode>
+			<replacecode><![CDATA[if ( $dle_module == "showfull" ) include ENGINE_DIR . "/modules/amp-end.php";]]></replacecode>
+		</operation>
+		<operation action="before">
+			<searchcode><![CDATA[$tpl->set ( '{content}',]]></searchcode>
+			<replacecode><![CDATA[include ENGINE_DIR . "/modules/amp-start.php";]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/init.php">
+		<operation action="before">
+			<searchcode><![CDATA[if (isset ( $_GET['cstart'] ) AND $_GET['cstart'] < 1 ) $_GET['cstart'] = 0;]]></searchcode>
+			<replacecode><![CDATA[$AMP = ( isset( $_GET["amp"] ) && intval( $_GET["amp"] ) == 1 );]]></replacecode>
+		</operation>
+	</file>
+</dleplugin>
