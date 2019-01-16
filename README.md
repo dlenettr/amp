@@ -30,7 +30,7 @@ Modülün admin panelden kontrolü yapılmamaktadır.
 
 ## Tarihçe
 
-|Version|Tarih|Uyumluluk|Yenilikler|
-| -
-|**1.0**|16.01.2019|13.0+|İlk sürüm|
+| Version | Tarih | Uyumluluk | Yenilikler |
+| ------- | ----- | --------- | ---------- |
+| **1.0** | 16.01.2019 | 13.0+ | İlk sürüm |
 
