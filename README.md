@@ -27,10 +27,10 @@ Modülün admin panelden kontrolü yapılmamaktadır.
 ## Ekran Görüntüleri
 ![Ekran 1](/docs/screen1.png?raw=true)
 ![Ekran 2](/docs/screen2.png?raw=true)
-![Ekran 3](/docs/screen3.png?raw=true)
 
 ## Tarihçe
 
 |Version|Tarih|Uyumluluk|Yenilikler|
 | -
 |**1.0**|16.01.2019|13.0+|İlk sürüm|
+
