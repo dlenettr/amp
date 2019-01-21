@@ -3,7 +3,7 @@
 	<name>AMP</name>
 	<description>Siteniz için Google AMP desteği. İçeriklerinizi otomatik olarak AMP için dönüştürür.</description>
 	<icon>engine/skins/images/amp.png</icon>
-	<version>1.0</version>
+	<version>1.1</version>
 	<dleversion>13.0</dleversion>
 	<versioncompare>greater</versioncompare>
 	<upgradeurl>https://raw.githubusercontent.com/dlenettr/amp/master/release.json</upgradeurl>
@@ -17,11 +17,6 @@
 		<operation action="before">
 			<searchcode><![CDATA[if ($canonical) {]]></searchcode>
 			<replacecode><![CDATA[if ($subaction == "showfull") {
-
-	$metatags .= <<<HTML
-	
-<link rel="canonical" href="{$full_link}">
-HTML;
 
 	$metatags .= <<<HTML
 
@@ -56,7 +51,7 @@ $tpl->set('{amp-link}', $amp_link);]]></replacecode>
 			<replacecode><![CDATA[if ( $dle_module == "showfull" ) include ENGINE_DIR . "/modules/amp-end.php";]]></replacecode>
 		</operation>
 		<operation action="before">
-			<searchcode><![CDATA[$tpl->set ( '{content}',]]></searchcode>
+			<searchcode><![CDATA[$tpl->set ( '{content}', "<div id='dle-content'>" . $tpl->result['content'] . "</div>" );]]></searchcode>
 			<replacecode><![CDATA[include ENGINE_DIR . "/modules/amp-start.php";]]></replacecode>
 		</operation>
 	</file>

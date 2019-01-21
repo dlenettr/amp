@@ -40,5 +40,6 @@ Modülün admin panelden kontrolü yapılmamaktadır.
 
 | Version | Tarih | Uyumluluk | Yenilikler |
 | ------- | ----- | --------- | ---------- |
+| **1.1** | 21.01.2019 | 13.0+ | AMP içim makale önbellekleme özelliği eklendi. Optimizasyonlar yapıldı. |
 | **1.0** | 16.01.2019 | 13.0+ | İlk sürüm |
 

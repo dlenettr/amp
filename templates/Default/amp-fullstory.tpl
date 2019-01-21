@@ -42,10 +42,10 @@
 	</div>
 	<div class="post-cont clrfix">
 		<amp-social-share type="email"></amp-social-share>
-		<amp-social-share type="facebook" data-param-app_id="254325784911610"></amp-social-share>
+		<amp-social-share type="facebook"></amp-social-share>
 		<amp-social-share type="gplus"></amp-social-share>
 		<amp-social-share type="linkedin"></amp-social-share>
-		<amp-social-share type="pinterest" data-param-media="[xfvalue_original_link]"></amp-social-share>
+		<amp-social-share type="pinterest"></amp-social-share>
 		<amp-social-share type="tumblr"></amp-social-share>
 		<amp-social-share type="twitter"></amp-social-share>
 		<amp-social-share type="whatsapp"></amp-social-share>

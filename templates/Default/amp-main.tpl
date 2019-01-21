@@ -1391,7 +1391,7 @@ textarea.ui-corner-all:focus,
 </head>
 <body>
 	<amp-sidebar id="sidebar-right" layout="nodisplay" side="right">
-		<amp-img class="amp-close-image" src="{THEME}/images/ic_close_black_18dp_2x.png" alt="close sidebar" on="tap:sidebar-right.close" role="button" tabindex="0"></amp-img>
+		<amp-img class="amp-close-image" width="25" height="25" src="{THEME}/images/ic_close_black_18dp_2x.png" alt="close sidebar" on="tap:sidebar-right.close" role="button" tabindex="0"></amp-img>
 		<ul>
 			<li class="sidebarr">
 				<a href="#">Kategori 2</a>
