@@ -11,6 +11,8 @@ composer require lullabot/amp
 ```
 *Yükleme sonrasında amp-library klasörü yaklaşık olarak 12-13 mb yer kaplayacaktır.*
 
+> Eğer bu işlemi yapamazsanız `docs/amp-library.zip` dosyasının içindekileri `engine/classes/amp-library` klasörüne kopyalayınız.
+
 **2)** Ardından eklentiyi sitenize yükleyin.
 
 **3)** .htaccess dosyasını açarak `RewriteEngine On` satırının altına ekleyin
