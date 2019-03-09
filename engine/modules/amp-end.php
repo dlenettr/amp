@@ -1,7 +1,7 @@
 <?php
 /*
 =============================================
- Name      : AMP v1.1
+ Name      : AMP v1.2
  Author    : Mehmet Hanoğlu ( MaRZoCHi )
  Site      : https://mehmethanoglu.com.tr
  License   : GPL License
@@ -27,7 +27,6 @@ if ( $AMP ) {
 
     $replace_count = 1;
     $tpl->result['main'] = str_ireplace( '{metatags}', $metatags, $tpl->result['main'], $replace_count );
-    $tpl->result['main'] = preg_replace( "#<link rel=['\"]canonical['\"](.+?)>#i", "", $tpl->result['main'], $replace_count );
     $tpl->result['main'] = str_ireplace( '{site-name}', $social_tags['site_name'], $tpl->result['main'] );
     $tpl->result['main'] = str_ireplace( '{normal-url}', $social_tags['url'], $tpl->result['main'] );
     $tpl->result['main'] = str_ireplace( '{amp-content}', $amp_html, $tpl->result['main'], $replace_count );

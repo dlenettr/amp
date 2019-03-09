@@ -3,7 +3,7 @@
 	<name>AMP</name>
 	<description>Siteniz için Google AMP desteği. İçeriklerinizi otomatik olarak AMP için dönüştürür.</description>
 	<icon>engine/skins/images/amp.png</icon>
-	<version>1.1</version>
+	<version>1.2</version>
 	<dleversion>13.0</dleversion>
 	<versioncompare>greater</versioncompare>
 	<upgradeurl>https://raw.githubusercontent.com/dlenettr/amp/master/release.json</upgradeurl>
@@ -16,7 +16,7 @@
 	<file name="engine/engine.php">
 		<operation action="before">
 			<searchcode><![CDATA[if ($canonical) {]]></searchcode>
-			<replacecode><![CDATA[if ($subaction == "showfull") {
+			<replacecode><![CDATA[if ($subaction == "showfull" && !$AMP) {
 
 	$metatags .= <<<HTML
 
