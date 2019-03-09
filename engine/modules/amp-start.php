@@ -1,7 +1,7 @@
 <?php
 /*
 =============================================
- Name      : AMP v1.1
+ Name      : AMP v1.2
  Author    : Mehmet Hanoğlu ( MaRZoCHi )
  Site      : https://mehmethanoglu.com.tr
  License   : GPL License

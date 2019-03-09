@@ -18,6 +18,8 @@ if ( $AMP ) {
     if ( ! $amp_html ) {
         include ENGINE_DIR . '/classes/amp-library/vendor/autoload.php';
 
+        $tpl->result['content'] = str_replace("<img data-src=", "<img src=", $tpl->result['content']);
+
         $amp = new AMP();
         $amp->loadHtml($tpl->result['content']);
         $amp_html = $amp->convertToAmpHtml();
