@@ -18,7 +18,12 @@ if ( $AMP ) {
     if ( ! $amp_html ) {
         include ENGINE_DIR . '/classes/amp-library/vendor/autoload.php';
 
-        $tpl->result['content'] = str_replace("<img data-src=", "<img src=", $tpl->result['content']);
+        preg_match_all("#<img([0-9a-z\=\"\'\s]*)data-src=#i", $tpl->result['content'], $matches);
+        if ( $matches ) {
+            foreach( $matches[0] as $k => $v ) {
+                $tpl->result['content'] = str_replace($v, "<img" . $matches[1][$k] . " src=", $tpl->result['content']);
+            }
+        }
 
         $amp = new AMP();
         $amp->loadHtml($tpl->result['content']);
