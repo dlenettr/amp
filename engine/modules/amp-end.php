@@ -24,6 +24,7 @@ if ( $AMP ) {
                 $tpl->result['content'] = str_replace($v, "<img" . $matches[1][$k] . " src=", $tpl->result['content']);
             }
         }
+        $tpl->result['content'] = str_replace("<img", "<amp-img", $tpl->result['content']);
 
         $amp = new AMP();
         $amp->loadHtml($tpl->result['content']);
